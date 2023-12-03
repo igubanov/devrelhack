@@ -119,8 +119,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cli@^17.0.2":
+"@angular/cli@^17.0.5":
   version "17.0.5"
+  resolved "https://registry.npmjs.org/@angular/cli/-/cli-17.0.5.tgz"
+  integrity sha512-IWtepjO1yTVGblbpTI7vtdxX5EjOYSL4BGa+3g85XuY6U2H38Bc9ZVBAYteAvRX1ZA2yvwJw068YY52ITlnr4A==
   dependencies:
     "@angular-devkit/architect" "0.1700.5"
     "@angular-devkit/core" "17.0.5"
