@@ -1,7 +1,11 @@
 ﻿# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-#logs
-/App_Data/Logs
+# compiled output
+/dist
+/tmp
+
+# dependencies
+/node_modules
 
 # IDEs and editors
 /.idea
@@ -22,12 +26,21 @@ bin/
 !.vscode/extensions.json
 
 # misc
+//.angular/cache
+.sass-cache
 /connect.lock
+/coverage/*
 /libpeerconnection.log
 npm-debug.log
 testem.log
 /typings
 
+# e2e
+/e2e/*.js
+/e2e/*.map
+
 #System Files
 .DS_Store
 Thumbs.db
+
+.angular
