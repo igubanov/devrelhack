@@ -1,0 +1,18 @@
+# FROM node:latest AS buildUi
+# ENV NG_CLI_ANALYTICS=ci
+# WORKDIR /src
+# COPY ["clientApp/", "clientApp/"]
+# WORKDIR /src/clientApp
+# RUN npm i --force && npm run ng build
+
+
+FROM node:latest AS buildUi
+# ENV NG_CLI_ANALYTICS=ci
+ENV DOCKER_BUILDKIT=1
+WORKDIR /src
+COPY ["/src/DevRel.Web.Host/clientApp/", "clientApp/"]
+WORKDIR /src/clientApp
+RUN npm i --force && npm run ng build
+
+FROM scratch AS export-stage
+COPY --from=buildUi /src/wwwroot/dist /tmp

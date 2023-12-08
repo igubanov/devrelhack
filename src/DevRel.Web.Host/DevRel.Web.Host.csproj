@@ -49,6 +49,7 @@
     <EmbeddedResource Remove="wwwroot\dist\**" />
     <None Remove="wwwroot\dist\**" />
     <Compile Remove="clientApp\**" />
+    <Content Remove="clientApp\**" />
     <EmbeddedResource Remove="clientApp\**" />
     <None Remove="clientApp\**" />
   </ItemGroup>
