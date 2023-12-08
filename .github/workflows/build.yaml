@@ -14,10 +14,22 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v2
 
-      - name: Build image
-        run: docker build . -t backend:latest -f src/DevRel.Web.Host/Dockerfile.BuildBack
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3
 
-      - name: Publish backend
-        uses: ishworkh/container-image-artifact-upload@v1.0.0
+      - name: Build image
+        run: docker buildx build -o back . -f src/DevRel.Web.Host/Dockerfile.BuildBack
+
+      - uses: actions/upload-artifact@v3
         with:
-          image: "backend:latest"
+          name: backend
+          path: back
+
+      # - name: Build image
+      #   run: docker build . -t backend:latest -f src/DevRel.Web.Host/Dockerfile.BuildBack
+
+      # - name: Publish backend
+      #   uses: ishworkh/container-image-artifact-upload@v1.0.0
+      #   with:
+      #     image: "backend:latest"
